@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hosiery Hustle</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+    .hero {
+     background: url(https://source.unsplash.com/1600x600/?clothes,fabric) no-repeat center center;
+    background-size: cover;
+    height: 520px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 10px;
+    }
+    .hero-content {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 500px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .hero .btn-signup {
+      background-color: orange;
+      border: none;
+      color: #fff;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .hero .btn-signup:hover {
+      background-color: darkorange;
+      transform: scale(1.05);
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      background: transparent;
+      padding: 8px 20px;
+      border: 2px solid #fff;
+      border-radius: 36px;
+      margin: 0 8px;
+      transition: background-color 0.3s, color 0.3s;
+      width: 120px;
+      text-align: center;
+    }
+    .navbar-nav .nav-link:hover {
+      background-color: orange;
+      color: #fff !important;
+      border: 2px solid #fff;
+    }
+    .modal-content {
+      border-radius: 15px;
+      padding: 30px;
+    }
+    .modal-header {
+      border-bottom: none;
+    }
+    .modal-title {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+    .form-label {
+      font-weight: 500;
+    }
+    .btn-primary {
+      background-color: orange;
+      padding: 12px 9px;
+      font-size: 1.1rem;
+      border-radius: 47px;
+      width: 150px;
+    }
+    .btn-primary:hover {
+      background-color: darkorange;
+    }
+    .card {
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 22px 20px;
+    }
+
+    header h1 {
+      margin: -3px;
+      font-size: 37px;
+      letter-spacing: 3px;
+    }
+
+    .fs-3 {
+         
+              margin-left: 0px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 3px 20px;
+      max-width: 1235px;
+      margin: 0 auto;
+    }
+
+    .item {
+      height: 408px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 26px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: transform 0.3s;
+    }
+    .item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      height: 0px;
+    }
+
+    .item h2, .item p {
+      position: relative;
+      margin: 0 0 10px 0;
+      z-index: 1;
+    }
+
+    .item h2 {
+      font-size: 27px;
+      font-weight: 700;
+    }
+
+    .item p {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+    }
+
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+    }
+
+    .container-my-5 {
+    margin-bottom: 150px;
+    font-family: 'Roboto', sans-serif;
+    background: #F5F5FF;
+    color: #fff;
+    }
+
+    .important h1 {
+      color: black;
+      font-size: 35px;
+      margin-top: 42px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .important p {
+      color: black;
+      font-size: 22px;
+      text-align: center;
+    }
+
+.footer-icons a {
+  color: orange;
+  margin: 0 15px;
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.footer-icons a:hover {
+  color: darkorange;
+  transform: scale(1.3);
+}
+       .important span{
+        color: orange;
+       }
+
+
+.mb-2 span{
+  color: orange;
+}
+
+.navbar {
+  min-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.logo {
+  width: 110px;
+  margin-top: 0;
+  margin-left: 8px;
+}
+
+
+
+  .text-orange {
+    color: orange;
+  }
+  </style>
+</head>
+<body> 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+   <img class="logo">
+    <div class="container">
+      <a class="navbar-brand fs-3 fw-bold" href="#">Hosiery Hustle</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto fs-5">
+          <li class="nav-item"><a class="nav-link" href="Hoziery-Hustle-Head.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero" style="background-image: url('images/img for hosiery export website.jpg');">
+    <div class="hero-content">
+      <h1>Comfort Meets Style</h1>
+      <p>Discover premium quality hosiery for all seasons. Shop our latest collection and experience unmatched comfort and style.</p>
+      <button class="btn btn-signup" id="signupBtn">Sign Up</button>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <div class="container-my-5">
+    <div class="important">
+      <h1>Our <span>Products</span> </h1>
+      <p class="text-center mb-5">Explore our premium collection of hosiery essentials.</p>
+    </div>
+
+
+
+
+
+    <div class="container">
+      <div class="item" style="background-image: url('images/photo-1605300287659-9ca1a156d7c8.jpeg');">
+        <h2>Gym Wear Collection</h2>
+        <p>Our Gym Wear Collection ensures comfort and flexibility, so you can focus on your workout without limits.</p>
+        <a href="gymwearcollection.html" class="btn btn-primary">Visit Now</a>
+      </div>
+
+      <div class="item" style="background-image: url('images/sgus-sff4f4-f4-f.png');">
+        <h2>Sublimation Cloths</h2>
+        <p>Our Sublimation Clothes are lightweight, breathable, and durable — perfect for vibrant designs that stay comfortable all day.</p>
+        <a href="sumblication.html" class="btn btn-primary">Visit Now</a>
+      </div>
+
+      <div class="item" style="background-image: url('images/546b73fe-e019-4cec-bc4e-c6b716c57277.93c4277c41bcc96cc9824c9893fe8845.webp');">
+        <h2>Cut and Sew</h2>
+        <p>Our Cut and Sew pieces are crafted for perfect fit and comfort, giving you a unique and stylish look.</p>
+        <a href="cutsew.html" class="btn btn-primary">Visit Now</a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="bg-dark text-white text-center p-4">
+  <div class="container">
+    <p class="mb-2">&copy; <span id="year"></span> Hosiery Hustle. All rights reserved.</p>
+    <div class="footer-icons d-flex justify-content-center gap-4">
+      <a href="https://wa.me/923107830534?text=Hi!%20Thanks%20For%20Message.%20How%20can%20I%20help%20you?" target="_blank" class="fs-4">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/hemlineapparel/" target="_blank" class="fs-4">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:hassanhafiz461@gmail.com" class="fs-4">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Sign Up Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="signupModalLabel">Create Account / Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="signupForm">
+          <div class="mb-3 text-start">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+          </div>
+          <div class="mb-3 text-start">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Your Password" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Continue</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+  <!-- Signup Script -->
+  <script>
+    const signupBtn = document.getElementById("signupBtn");
+    const signupModal = new bootstrap.Modal(document.getElementById('signupModal'));
+    const signupForm = document.getElementById("signupForm");
+
+    signupBtn.addEventListener("click", function () {
+      if (!localStorage.getItem("signedUp")) {
+        signupModal.show();
+      } else {
+        alert("You have already signed up!");
+      }
+    });
+
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      localStorage.setItem("signedUp", "true");
+      signupModal.hide();
+      alert("Sign up successful! 🎉");
+    });
+  </script>
+  <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gym Wear Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      color: #fff;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 22px 20px;
+          
+    }
+
+    header h1 {
+         margin: -3px;
+    font-size: 37px;
+    letter-spacing: 3px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+    .item {
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .item h2, .item p {
+      position: relative;
+      margin: 0 0 10px 0;
+      z-index: 1;
+    }
+
+    .item h2 {
+      font-size: 27px;
+      font-weight: 700;
+    }
+
+    .item p {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+    }
+
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+    }
+
+
+
+<!-- ✅ Add this CSS to your <style> -->
+<style>
+  .overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 999;
+  }
+  .popup {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+  }
+  .popup button {
+    margin: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  #whatsappBtn { background: #25D366; }
+  #emailBtn { background: #0072C6; }
+  #instaBtn { background: #E1306C; }
+  #closePopup { background: #ff0000; }
+    
+
+      </style>
+</head>
+<body>
+
+  <header>
+    <h1>Gym Wear Collection</h1>
+  </header>
+
+  <div class="container">
+    <div class="item" style="background-image: url('images/65f5c3af057ada3cdb412601-zipper-sports-bra-for-women-velcro.jpg');">
+      <h2>Sports Bra</h2>
+      <p>High support and comfort for your workouts. Breathable fabric keeps you cool and dry.</p>
+    </div>
+
+    <div class="item" style="background-image: url('images/PH9PCHCN23SK-BK3_front.webp');">
+      <h2>Leggings</h2>
+      <p>Flexible and stretchable leggings for men and women. Perfect for running, gym and yoga sessions.</p>
+    </div>
+
+    <div class="item" style="background-image: url('images/TOWED22-Sleeveless-Shirts-For-Men-Mens-Tank-Tops-Muscle-Shirts-for-Men.webp');">
+      <h2>Tank Top</h2>
+      <p>Lightweight tank tops for men and women. Ideal for training and casual wear.</p>
+    </div>
+
+    <div class="item" style="background-image: url('images/arm-seelve.jpeg');">
+      <h2>Arm Sleeve</h2>
+      <p>Compression arm sleeves to protect your muscles and keep you comfortable during intense workouts.</p>
+    </div>
+  </div>
+
+<!-- ✅ POPUP & OVERLAY -->
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">
+  <h2>Contact Us</h2>
+  <button id="whatsappBtn">WhatsApp Chat</button>
+  <button id="emailBtn">Email Us</button>
+  <button id="instaBtn">Instagram</button>
+  <br>
+  <button id="closePopup">Close</button>
+</div>
+
+ <!-- ✅ Add this SCRIPT at the end of your <body> -->
+<script>
+  const items = document.querySelectorAll('.item');
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('overlay');
+  const closeBtn = document.getElementById('closePopup');
+  const whatsappBtn = document.getElementById('whatsappBtn');
+  const emailBtn = document.getElementById('emailBtn');
+  const instaBtn = document.getElementById('instaBtn');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      overlay.style.display = 'block';
+      popup.style.display = 'block';
+    });
+  });
+
+  overlay.addEventListener('click', close);
+  closeBtn.addEventListener('click', close);
+
+  function close() {
+    overlay.style.display = 'none';
+    popup.style.display = 'none';
+  }
+
+  // ✅ WhatsApp: apna number aur pehla message lagao
+  whatsappBtn.addEventListener('click', () => {
+    window.open('https://wa.me/923107830534?text=Hi!%20Thanks%20For%20Message.%20How%20can%20I%20help%20you?', '_blank');
+
+  });
+
+  // ✅ Email: apna email lagao
+  emailBtn.addEventListener('click', () => {
+   window.open('https://mail.google.com/mail/?view=cm&to=hassanhafiz461@gmail.com', '_blank');
+
+  });
+
+  // ✅ Instagram: apna username lagao
+  instaBtn.addEventListener('click', () => {
+    window.open('https://www.instagram.com/hemlineapparel/', '_blank');
+  });
+</script>
+  </body>
+</html>
